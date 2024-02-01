@@ -4,7 +4,10 @@ body {
 }
 
 .card {
-  background-color: #1e1e1e;
+  background-image: url('pizza.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   color: #ffffff;
   line-height: 1.7;
   margin: 40px auto;
