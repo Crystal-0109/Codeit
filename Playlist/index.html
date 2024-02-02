@@ -6,91 +6,110 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section>
-    <h2 class="section-title">이달의 플레이리스트</h2>
-    <div class="playlists">
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_1.png">
-        <div class="playlist-title">
-          여행을 떠나요
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
+  <header>
+    <div class="wrap">Codeit Music</div>
+  </header>
+  <main class="wrap">
+    <div class="info">
+      <div class="cover">
+        <img
+          class="cover-image"
+          src="images/img_cafe.png"
+          alt="카페에서 일할 때 커버 이미지"
+       >
+        <img
+          src="images/icon_play.png"
+          alt="재생 아이콘"
+          class="cover-play-icon"
+       >
       </div>
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_2.png">
-        <div class="playlist-title">
-          금요일 저녁의 카페에서
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
+      <h1 class="playlist-title">
+        카페에서 일할 때
+        <span class="hot-badge"> 인기 </span>
+      </h1>
+      <div class="artist">
+        <img
+          src="images/img_codeit.png"
+          alt="코드잇 프로필"
+          class="artist-profile"
+       >
+        코드잇
       </div>
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_3.png">
-        <div class="playlist-title">
-          이제 집중할 시간
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
+      <div class="description">
+        차분하게 흐르는 따뜻한 음악과 함께하는 휴식. Codeit Music 에디터가
+        매달 업데이트하는 플레이리스트입니다. 마음에 드는 곳이 있다면 보관함에
+        추가해 보세요.
       </div>
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_4.png">
-        <div class="playlist-title">
-          몰디브 한 잔
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
-      </div>
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_5.png">
-        <div class="playlist-title">
-          K-Pop 믹스
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
-      </div>
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_6.png">
-        <div class="playlist-title">
-          공부를 위한 클래식
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
-      </div>
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_7.png">
-        <div class="playlist-title">
-          한국 시티팝 20선
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
-      </div>
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_8.png">
-        <div class="playlist-title">
-          편안하게 느긋하게
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
-      </div>
-      <div class="playlist">
-        <img class="playlist-thumb" src="images/img_playlist_9.png">
-        <div class="playlist-title">
-          고요한 밤을 위한 BGM
-        </div>
-        <div class="playlist-artist">
-          Codeit Music
-        </div>
-      </div>
+      <button class="play-button">▶️ 지금 듣기</button>
     </div>
-  </section>
+    <ol class="tracks">
+      <li class="track">
+        <div class="track-number">1</div>
+        <div class="track-title">자주자주(디깅클럽부산 Ver.)</div>
+        <div class="track-artist">지조</div>
+        <img
+          class="track-icon"
+          src="images/icon_playlist.svg"
+          alt="플레이리스트에 넣기"
+       >
+        <img class="track-icon" src="images/icon_more.svg" alt="더 보기">
+      </li>
+      <li class="track">
+        <div class="track-number">2</div>
+        <div class="track-title">All</div>
+        <div class="track-artist">천예린</div>
+        <img
+          class="track-icon"
+          src="images/icon_playlist.svg"
+          alt="플레이리스트에 넣기"
+       >
+        <img class="track-icon" src="images/icon_more.svg" alt="더 보기">
+      </li>
+      <li class="track active">
+        <div class="track-number">3</div>
+        <div class="track-title">나는 어떻게 (Feat. 천예린)</div>
+        <div class="track-artist">심원찬</div>
+        <img
+          class="track-icon"
+          src="images/icon_playlist.svg"
+          alt="플레이리스트에 넣기"
+       >
+        <img class="track-icon" src="images/icon_more.svg" alt="더 보기">
+      </li>
+      <li class="track">
+        <div class="track-number">4</div>
+        <div class="track-title">시간을 거슬러(Feat. 지조)</div>
+        <div class="track-artist">오키</div>
+        <img
+          class="track-icon"
+          src="images/icon_playlist.svg"
+          alt="플레이리스트에 넣기"
+       >
+        <img class="track-icon" src="images/icon_more.svg" alt="더 보기">
+      </li>
+      <li class="track">
+        <div class="track-number">5</div>
+        <div class="track-title">우르르</div>
+        <div class="track-artist">핫트</div>
+        <img
+          class="track-icon"
+          src="images/icon_playlist.svg"
+          alt="플레이리스트에 넣기"
+       >
+        <img class="track-icon" src="images/icon_more.svg" alt="더 보기">
+      </li>
+      <li class="track">
+        <div class="track-number">6</div>
+        <div class="track-title">당신이 맞다는 대답을 할 거예요</div>
+        <div class="track-artist">이강하</div>
+        <img
+          class="track-icon"
+          src="images/icon_playlist.svg"
+          alt="플레이리스트에 넣기"
+       >
+        <img class="track-icon" src="images/icon_more.svg" alt="더 보기">
+      </li>
+    </ol>
+  </main>
 </body>
 </html>
