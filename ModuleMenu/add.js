@@ -1,5 +1,5 @@
-const addInput = document.querySelector('.add-input');
-const list = document.querySelector('.list');
+// addInput, list를 import해 주세요
+import { addInput, list } from './tags.js';
 
 function add(data) {
   const inputValue = addInput.value;
@@ -7,7 +7,7 @@ function add(data) {
 
   const li = document.createElement('li');
   li.classList.add('item');
-  li.innerHTML = `<b>${index + 1}</b>${inputValue}<button class="del-btn" data-index="${index}">x</button>`;
+  li.innerHTML = `<b>${index + 1}</b>${inputValue}<button class="del-btn" data-index="${index}">x</div>`;
   list.append(li);
 
   data.push(inputValue);
@@ -26,7 +26,6 @@ function maxAlert() {
   addInput.value = '';
 }
 
-// 아래 코드를 수정해 주세요
 export function addMenu(data) {
   const inputValue = addInput.value;
 
@@ -37,4 +36,4 @@ export function addMenu(data) {
   } else {
     add(data);
   }
-}
+};

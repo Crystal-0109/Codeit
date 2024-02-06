@@ -1,11 +1,9 @@
 import { addMenu } from './add.js';
-// 여기에 코드를 작성하세요
-import { deleteMenuByIndex as deleteMenu } from './delete.js';
+import { deleteMenu } from './delete.js';
+// addBtn, addInput, list 를 import해 주세요
+import { addBtn, addInput, list } from './tags.js';
 
 const data = [];
-const addBtn = document.querySelector('.add-btn');
-const addInput = document.querySelector('.add-input');
-const list = document.querySelector('.list');
 
 addBtn.addEventListener('click', () => addMenu(data));
 addInput.addEventListener('keypress', (e) => e.code === 'Enter' && addMenu(data));

@@ -1,4 +1,5 @@
-const list = document.querySelector('.list');
+// list를 import해 주세요
+import { list } from './tags.js';
 
 function reloadMenu(data) {
   list.innerHTML = '';
@@ -6,12 +7,12 @@ function reloadMenu(data) {
   data.forEach((title, index) => {
     const li = document.createElement('li');
     li.classList.add('item');
-    li.innerHTML = `<b>${index + 1}</b>${title}<button class="del-btn" data-index="${index}">x</button>`;
+    li.innerHTML = `<b>${index + 1}</b>${title}<button class="del-btn" data-index="${index}">x</div>`;
     list.append(li);
   });
 }
 
-export function deleteMenuByIndex(data, index) {
+export function deleteMenu(data, index) {
   data.splice(index, 1);
   reloadMenu(data);
 };
