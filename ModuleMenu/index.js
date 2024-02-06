@@ -1,5 +1,5 @@
 // 여기에 코드를 작성하세요
-
+import { addMenu } from './add.js'
 
 const data = [];
 const addBtn = document.querySelector('.add-btn');
