@@ -1,4 +1,4 @@
-import { addInput, list } from './tags.js';
+import { addInput, list } from '../tags.js';
 
 function add(data) {
   const inputValue = addInput.value;
@@ -21,7 +21,7 @@ function emptyAlert() {
 }
 
 function maxAlert() {
-  alert('메뉴는 최대 5개까지만 고민할 수 있습니다.');
+  alert('메뉴는 최대 5개 까지만 고민할 수 있습니다.');
   addInput.value = '';
 }
 
@@ -36,5 +36,4 @@ function addMenu(data) {
   }
 }
 
-// 여기에 코드를 작성하세요
 export default addMenu;

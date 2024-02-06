@@ -1,4 +1,4 @@
-import { addInput, list, rollBtn } from './tags.js';
+import { addInput, list, rollBtn } from '../tags.js';
 
 function selectMenu(data) {
   list.classList.remove('rolling');
@@ -36,5 +36,4 @@ function rollMenu(data) {
   }
 }
 
-// 여기에 코드를 작성하세요
 export default rollMenu;

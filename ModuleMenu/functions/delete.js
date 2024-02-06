@@ -1,4 +1,4 @@
-import { list } from './tags.js';
+import { list } from '../tags.js';
 
 function reloadMenu(data) {
   list.innerHTML = '';
@@ -6,7 +6,7 @@ function reloadMenu(data) {
   data.forEach((title, index) => {
     const li = document.createElement('li');
     li.classList.add('item');
-    li.innerHTML = `<b>${index + 1}</b>${title}<button class="del-btn" data-index="${index}">x</div>`;
+    li.innerHTML = `<b>${index + 1}</b>${title}<button class="del-btn" data-index="${index}">x</button>`;
     list.append(li);
   });
 }
@@ -16,5 +16,4 @@ function deleteMenu(data, index) {
   reloadMenu(data);
 }
 
-// 여기에 코드를 작성하세요
 export default deleteMenu;
