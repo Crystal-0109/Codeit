@@ -1,4 +1,3 @@
-// list를 import해 주세요
 import { list } from './tags.js';
 
 function reloadMenu(data) {
@@ -12,7 +11,10 @@ function reloadMenu(data) {
   });
 }
 
-export function deleteMenu(data, index) {
+function deleteMenu(data, index) {
   data.splice(index, 1);
   reloadMenu(data);
-};
+}
+
+// 여기에 코드를 작성하세요
+export default deleteMenu;

@@ -1,4 +1,3 @@
-// addInput, list를 import해 주세요
 import { addInput, list } from './tags.js';
 
 function add(data) {
@@ -26,9 +25,8 @@ function maxAlert() {
   addInput.value = '';
 }
 
-export function addMenu(data) {
+function addMenu(data) {
   const inputValue = addInput.value;
-
   if (inputValue === '') {
     emptyAlert();
   } else if (data.length > 4) {
@@ -36,4 +34,7 @@ export function addMenu(data) {
   } else {
     add(data);
   }
-};
+}
+
+// 여기에 코드를 작성하세요
+export default addMenu;
