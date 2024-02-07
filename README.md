@@ -38,3 +38,4 @@
 - 자바스크립트 웹 개발 기본기
   - POST request 보내기
   - PUT request, DELETE request 보내기
+  - 직렬화, 역직렬화
