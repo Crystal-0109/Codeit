@@ -39,3 +39,4 @@
   - POST request 보내기
   - PUT request, DELETE request 보내기
   - 직렬화, 역직렬화
+  - Content-type
