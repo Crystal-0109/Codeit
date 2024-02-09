@@ -35,8 +35,9 @@
   - 배열 메소드4: reduce 실습
   - 모듈(메뉴 기능)
 
-- 자바스크립트 웹 개발 기본기
+- 자바스크립트 웹 개발 기본기 (WebAPI)
   - POST request 보내기
   - PUT request, DELETE request 보내기
   - 직렬화, 역직렬화
   - Content-type
+  - 신입 사원 정보 반영하기 (Promise Chaining)
