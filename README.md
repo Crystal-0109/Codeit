@@ -45,3 +45,6 @@
   - 점심 메뉴 랜덤 선택기 (reject(), resolve())
   - async, await (세련된 비동기 실행 코드 작성해보기)
   - 점심 메뉴 랜덤 선택기 (async, await)
+
+  - 프로그래밍 핵심 개념 in Python
+    - 문자열 포맷팅 실습
