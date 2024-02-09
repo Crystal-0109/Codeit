@@ -41,3 +41,4 @@
   - 직렬화, 역직렬화
   - Content-type
   - 신입 사원 정보 반영하기 (Promise Chaining)
+  - Promisify
