@@ -43,3 +43,4 @@
   - 신입 사원 정보 반영하기 (Promise Chaining)
   - Promisify
   - 점심 메뉴 랜덤 선택기 (reject(), resolve())
+  - async, await (세련된 비동기 실행 코드 작성해보기)
