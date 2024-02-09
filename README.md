@@ -42,3 +42,4 @@
   - Content-type
   - 신입 사원 정보 반영하기 (Promise Chaining)
   - Promisify
+  - 점심 메뉴 랜덤 선택기 (reject(), resolve())
