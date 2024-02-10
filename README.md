@@ -46,6 +46,9 @@
   - async, await (세련된 비동기 실행 코드 작성해보기)
   - 점심 메뉴 랜덤 선택기 (async, await)
 
-  - 프로그래밍 핵심 개념 in Python
-    - 문자열 포맷팅 실습
-    - 거스름돈 계산기 (Calculate Exchange)
+- 프로그래밍 핵심 개념 in Python
+  - 문자열 포맷팅 실습
+  - 거스름돈 계산기 (Calculate Exchange)
+
+- 파이썬 응용하기
+  - 숫자 맞히기 게임 (Random())
