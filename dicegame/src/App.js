@@ -24,7 +24,7 @@ function App() {
     setOtherNum(nextOtherNum);
     setOtherSum(otherSum + nextOtherNum);
     setOtherGameHistory([...otherGameHistory, nextOtherNum]);
-  }
+  };
 
   const handleClearClick = () => { // 처음부터 버튼(초기화 버튼)
     setNum(1);
@@ -33,14 +33,12 @@ function App() {
     setOtherNum(1);
     setOtherSum(0);
     setOtherGameHistory([]);
-  } 
+  };
 
   return (
     <div>
-      <div>
-        <Button onClick={handleRollClick}>던지기</Button>
-        <Button onClick={handleClearClick}>처음부터</Button>
-      </div>
+      <Button onClick={handleRollClick}>던지기</Button>
+      <Button onClick={handleClearClick}>처음부터</Button>
       <div>
         <Board name="나" color="blue" num={num} sum={sum} gameHistory={gameHistory} />
         <Board name="상대" color="red" num={otherNum} sum={otherSum} gameHistory={otherGameHistory} />
