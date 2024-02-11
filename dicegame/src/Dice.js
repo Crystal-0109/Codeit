@@ -1,6 +1,7 @@
 import diceBlue01 from './assets/dice-blue-1.svg';
 
-function Dice() {
+function Dice(props) {
+  console.log(props);
   return <img src={diceBlue01} alt='주사위' />;
 }
 
