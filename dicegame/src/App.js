@@ -28,7 +28,12 @@ function App() {
       <Button onClick={handleRollClick}>던지기</Button>
       <Button onClick={handleClearClick}>처음부터</Button>
     </div>
-    <Dice color="red" num={num} />
+    <div>
+      <h2>나</h2>
+      <Dice color="blue" num={num} />
+      <h2>총점</h2>
+      <p>{sum}</p>
+    </div>
   </div>
   );
 }
