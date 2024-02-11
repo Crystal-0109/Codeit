@@ -3,6 +3,9 @@ import Button from './Button';
 import HandButton from './HandButton';
 import HandIcon from './HandIcon';
 import { compareHand, generateRandomHand } from './utils';
+import reset from './assets/ic-reset.svg';
+import './App.css';
+import './Hand.css';
 
 const INITIAL_VALUE = 'rock';
 
@@ -50,20 +53,42 @@ function App() {
   };
 
   return (
-    <div>
-      <Button onClick={handleClearClick}>처음부터</Button>
-      <div>
-        {score} : {otherScore}
+    <div className='App'>
+      <h1 className='App-heading'>가위바위보</h1>
+      <img className='App-reset' src={reset} onClick={handleClearClick} alt="초기화" />
+      {/* <Button onClick={handleClearClick}>처음부터</Button> */}
+      <div className='App-scores'>
+        <div className='Score'>
+          <div className='Score-num'>{score}</div>
+          <div className='Score-name'>나</div>
+        </div>
+        <div className='App-versus'>:</div>
+        <div className='Score'>
+          <div className='Score-num'>{otherScore}</div>
+          <div className='Score-name'>상대</div>
+        </div>
       </div>
-      <div>
-        <HandIcon value={hand} />
-        VS
-        <HandIcon value={otherHand} />
+      <div class="Box App-box">
+        <div class="Box-inner">
+          <div class="App-hands">
+            <div class="Hand">
+              <HandIcon className="Hand-icon" value={hand} />
+            </div>
+            <div class="App-versus">VS</div>
+            <div class="Hand">
+              <HandIcon className="Hand-icon" value={otherHand} />
+            </div>
+          </div>
+          <div className='App-bet'>
+            <span>배점</span><input type="number" value={bet} min={1} max={9} onChange={handleBetChange}></input>
+          </div>
+          <div className='App-history'>
+            <h2>승부 기록</h2>
+            {gameHistory.join(', ')}
+          </div>
+        </div>
       </div>
-      <div>
-        <input type="number" value={bet} min={1} max={9} onChange={handleBetChange}></input>
-      </div>
-      <p>승부 기록: {gameHistory.join(', ')}</p>
+      
       <div>
         <HandButton value="rock" onClick={handleButtonClick} />
         <HandButton value="scissor" onClick={handleButtonClick} />
