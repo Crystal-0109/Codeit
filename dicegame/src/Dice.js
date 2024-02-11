@@ -16,9 +16,9 @@ const DICE_IMAGES = {
   red: [diceRed01, diceRed02, diceRed03, diceRed04, diceRed05, diceRed06],
 };
 
-function Dice(props) {
-  const src = DICE_IMAGES[props.color][props.num - 1];
-  const alt = `${props.color} ${props.num}`;
+function Dice({ color, num }) {
+  const src = DICE_IMAGES[color][num - 1];
+  const alt = `${color} ${num}`;
   return <img src={src} alt={alt} />;
 }
 
