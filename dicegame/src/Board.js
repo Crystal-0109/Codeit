@@ -1,6 +1,6 @@
 import Dice from "./Dice";
 
-function Board({ name, color }) {
+function Board({ name, color, num, sum, gameHistory }) {
   return (
     <div>
       <h2>{name}</h2>

@@ -42,8 +42,8 @@ function App() {
         <Button onClick={handleClearClick}>처음부터</Button>
       </div>
       <div>
-        <Board name="나" color="blue" />
-        <Board name="상대" color="red" />
+        <Board name="나" color="blue" num={num} sum={sum} gameHistory={gameHistory} />
+        <Board name="상대" color="red" num={otherNum} sum={otherSum} gameHistory={otherGameHistory} />
       </div>
     </div>
   );
