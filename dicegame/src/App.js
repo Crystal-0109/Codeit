@@ -17,15 +17,22 @@ function App() {
 
   const handleRollClick = () => { // 던지기 버튼
     const nextNum = random(6);
+    const nextOtherNum = random(6);
     setNum(nextNum);
     setSum(sum + nextNum);
     setGameHistory([...gameHistory, nextNum]);
+    setOtherNum(nextOtherNum);
+    setOtherSum(otherSum + nextOtherNum);
+    setOtherGameHistory([...otherGameHistory, nextOtherNum]);
   }
 
   const handleClearClick = () => { // 처음부터 버튼(초기화 버튼)
     setNum(1);
     setSum(0);
     setGameHistory([]);
+    setOtherNum(1);
+    setOtherSum(0);
+    setOtherGameHistory([]);
   } 
 
   return (
