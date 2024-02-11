@@ -1,5 +1,5 @@
 function Button({ children }) {
-  return <Button>{children}</Button>;
+  return <button>{children}</button>;
 }
 
 export default Button;
