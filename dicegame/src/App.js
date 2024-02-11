@@ -1,7 +1,10 @@
+import { useState } from "react";
 import Button from "./Button";
 import Dice from "./Dice";
 
 function App() {
+  const [num, setNum] = useState(1);
+  
   return (
   <div>
     <div>
