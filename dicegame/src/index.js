@@ -2,9 +2,9 @@ import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const product = "맥북";
+const product = "MacBook";
 
 root.render(
-  <h1>나만의 {product} 주문하기</h1>
+  <h1>나만의 {product.toUpperCase()} 주문하기</h1>
   
 );
