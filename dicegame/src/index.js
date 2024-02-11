@@ -1,11 +1,10 @@
-import { Fragment } from 'react';
 import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const product = "맥북";
+
 root.render(
-  <Fragment>
-    <h1>안녕 리액트!</h1>
-    <h1>안녕 리액트!</h1>
-  </Fragment>
+  <h1>나만의 {product} 주문하기</h1>
   
 );
