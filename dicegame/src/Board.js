@@ -1,6 +1,9 @@
 import Dice from "./Dice";
 
-function Board({ name, color, num, sum, gameHistory }) {
+function Board({ name, color, gameHistory }) {
+  const num = gameHistory[gameHistory.length - 1] || 1;  // num과 sum을 직접 계산해서 사용
+  const sum = gameHistory.reduce((a, b) => a + b, 0);
+
   return (
     <div>
       <h1>{name}</h1>
