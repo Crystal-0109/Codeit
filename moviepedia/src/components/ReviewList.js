@@ -23,7 +23,11 @@ function ReviewList({ items }) {
   return (
     <ul>
       {items.map((item) => {
-        return <li>{item.title}</li>;
+        return (
+          <li>
+            <ReviewListItem item={item} />
+          </li>
+        );
       })}
     </ul>
   );
