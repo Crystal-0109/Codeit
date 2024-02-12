@@ -1,10 +1,12 @@
-import ReviewList from './ReviewList';
-import items from '../mock.json';
+import ReviewList from "./ReviewList";
+import items from "../mock.json";
 
 function App() {
+  const sortedItems = items.sort((a, b) => b.rating - a.rating);
+
   return (
     <div>
-      <ReviewList items={items} />
+      <ReviewList items={sortedItems} />
     </div>
   );
 }
