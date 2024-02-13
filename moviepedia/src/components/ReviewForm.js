@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./ReviewForm.css";
+import FileInput from "./FileInput";
 
 function ReviewForm() {
   const [values, setValues] = useState({ title: "", rating: 0, content: "" });
@@ -18,6 +19,7 @@ function ReviewForm() {
 
   return (
     <form className="ReviewForm" onSubmit={handleSubmit}>
+      <FileInput />
       <input name="title" value={values.title} onChange={handleChange} />
       <input type="number" name="rating" value={values.rating} onChange={handleChange} />
       <textarea name="content" value={values.content} onChange={handleChange} />
