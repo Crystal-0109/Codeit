@@ -31,7 +31,7 @@ function ReviewForm({ initialValues = INITIAL_VALUES, initialPreview, onSubmitSu
     formData.append("content", values.content);
     formData.append("imgFile", values.imgFile);
 
-    let result = await onSubmitAsync(formData);
+    const result = await onSubmitAsync(formData);
     if (!result) return;
 
     const { review } = result;
