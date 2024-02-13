@@ -6,8 +6,8 @@ function useAsync(asyncFunction) {
 
   const wrappedFunction = useCallback(
     async (...args) => {
-      setError(null);
       setPending(true);
+      setError(null);
       try {
         return await asyncFunction(...args);
       } catch (error) {

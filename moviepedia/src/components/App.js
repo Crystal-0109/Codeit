@@ -1,20 +1,31 @@
+import { useCallback, useEffect, useState } from "react";
+import ReviewList from "./ReviewList";
+import ReviewForm from "./ReviewForm";
 import { createReview, deleteReview, getReviews, updateReview } from "../api";
-import { LocaleProvider } from "../context/LocaleContext";
 import useAsync from "../hooks/useAsync";
 import LocaleSelect from "./LocaleSelect";
-import ReviewForm from "./ReviewForm";
-import ReviewList from "./ReviewList";
-import { useCallback, useEffect, useState } from "react";
+import "./App.css";
+import logoImg from "../assets/logo.png";
+import ticketImg from "../assets/ticket.png";
+import useTranslate from "../hooks/useTranslate";
 
 const LIMIT = 6;
 
+function AppSortButton({ selected, children, onClick }) {
+  return (
+    <button disabled={selected} className={`AppSortButton ${selected ? "selected" : ""}`} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+
 function App() {
-  const [items, setItems] = useState([]);
+  const t = useTranslate();
   const [order, setOrder] = useState("createdAt");
   const [offset, setOffset] = useState(0);
   const [hasNext, setHasNext] = useState(false);
   const [isLoading, loadingError, getReviewsAsync] = useAsync(getReviews);
-
+  const [items, setItems] = useState([]);
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
 
   const handleNewestClick = () => setOrder("createdAt");
@@ -33,7 +44,7 @@ function App() {
       const result = await getReviewsAsync(options);
       if (!result) return;
 
-      const { reviews, paging } = result;
+      const { paging, reviews } = result;
       if (options.offset === 0) {
         setItems(reviews);
       } else {
@@ -45,7 +56,6 @@ function App() {
     [getReviewsAsync]
   );
 
-  // 다음 페이지를 보여줄 함수
   const handleLoadMore = async () => {
     await handleLoad({ order, offset, limit: LIMIT });
   };
@@ -66,23 +76,43 @@ function App() {
   }, [order, handleLoad]);
 
   return (
-    <LocaleProvider defaultValue={"ko"}>
-      <div>
-        <LocaleSelect />
-        <div>
-          <button onClick={handleNewestClick}>최신순</button>
-          <button onClick={handleBestClick}>평점순</button>
+    <div className="App">
+      <nav className="App-nav">
+        <div className="App-nav-container">
+          <img className="App-logo" src={logoImg} alt="MOVIE PEDIA" />
+          <LocaleSelect />
         </div>
-        <ReviewForm onSubmit={createReview} onSubmitSuccess={handleCreateSuccess} />
-        <ReviewList items={sortedItems} onDelete={handleDelete} onUpdate={updateReview} onUpdateSuccess={handleUpdateSuccess} />
-        {hasNext && (
-          <button disabled={isLoading} onClick={handleLoadMore}>
-            더 보기
-          </button>
-        )}
-        {loadingError?.message && <span>{loadingError.message}</span>}
+      </nav>
+      <div className="App-container">
+        <div className="App-ReviewForm" style={{ backgroundImage: `url("${ticketImg})` }}>
+          <ReviewForm onSubmit={createReview} onSubmitSuccess={handleCreateSuccess} />
+        </div>
+        <div className="App-sorts">
+          <AppSortButton selected={order === "createdAt"} onClick={handleNewestClick}>
+            {t("newest")}
+          </AppSortButton>
+          <AppSortButton selected={order === "rating"} onClick={handleBestClick}>
+            {t("best")}
+          </AppSortButton>
+        </div>
+        <div className="App-ReviewList">
+          <ReviewList items={sortedItems} onDelete={handleDelete} onUpdate={updateReview} onUpdateSuccess={handleUpdateSuccess} />
+          {hasNext ? (
+            <button className="App-load-more-button" disabled={isLoading} onClick={handleLoadMore}>
+              {t("load more")}
+            </button>
+          ) : (
+            <div className="App-load-more-button" />
+          )}
+          {loadingError?.message && <span>{loadingError.message}</span>}
+        </div>
       </div>
-    </LocaleProvider>
+      <footer className="App-footer">
+        <div className="App-footer-container">
+          {t("terms of service")} | {t("privacy policy")}
+        </div>
+      </footer>
+    </div>
   );
 }
 
