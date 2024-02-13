@@ -42,13 +42,17 @@ function App() {
     } else {
       setItems((prevItems) => [...prevItems, ...reviews]);
     }
-    setOffset(options.offset + reviews.length);
+    setOffset(options.offset + options.limit);
     setHasNext(paging.hasNext);
   };
 
   // 다음 페이지를 보여줄 함수
-  const handleLoadMore = () => {
-    handleLoad({ order, offset, limit: LIMIT });
+  const handleLoadMore = async () => {
+    await handleLoad({ order, offset, limit: LIMIT });
+  };
+
+  const handleSubmitSuccess = (review) => {
+    setItems((prevItems) => [review, ...prevItems]);
   };
 
   useEffect(() => {
@@ -61,7 +65,7 @@ function App() {
         <button onClick={handleNewestClick}>최신순</button>
         <button onClick={handleBestClick}>평점순</button>
       </div>
-      <ReviewForm />
+      <ReviewForm onSubmitSuccess={handleSubmitSuccess} />
       <ReviewList items={sortedItems} onDelete={handleDelete} />
       {hasNext && (
         <button disabled={isLoading} onClick={handleLoadMore}>

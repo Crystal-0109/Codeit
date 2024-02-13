@@ -6,7 +6,7 @@ import { createReview } from "../api";
 
 const INITIAL_VALUES = { title: "", rating: 0, content: "", imgFile: null };
 
-function ReviewForm() {
+function ReviewForm({ onSubmitSuccess }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState(null);
   const [values, setValues] = useState(INITIAL_VALUES);
@@ -25,22 +25,27 @@ function ReviewForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append("title", values.title);
     formData.append("rating", values.rating);
     formData.append("content", values.content);
     formData.append("imgFile", values.imgFile);
+
+    let result;
     try {
       setSubmittingError(null);
       setIsSubmitting(true);
-      await createReview(formData);
+      result = await createReview(formData);
     } catch (error) {
-      setIsSubmitting(error);
+      setSubmittingError(error);
       return;
     } finally {
       setIsSubmitting(false);
     }
+    const { review } = result;
     setValues(INITIAL_VALUES);
+    onSubmitSuccess(review);
   };
 
   return (
