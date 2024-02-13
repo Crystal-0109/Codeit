@@ -1,6 +1,8 @@
+import "./Rating.css";
+
 function Star({ selected = false }) {
   const className = `Rating-star ${selected ? "selected" : ""}`;
-  return <span className={className}>*</span>;
+  return <span className={className}>★</span>;
 }
 
 function Rating({ value = 0 }) {
