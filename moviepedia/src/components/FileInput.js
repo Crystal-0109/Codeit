@@ -4,7 +4,8 @@ function FileInput() {
   const [value, setValue] = useState();
 
   const handleChange = (e) => {
-    console.log(e.target.files);
+    const nextValue = e.target.files[0];
+    setValue(nextValue);
   };
 
   return <input type="file" onChange={handleChange} />;
