@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import classNames from "classnames";
 import { getQuestionById } from "../api";
 import Avatar from "../components/Avatar";
@@ -13,6 +13,10 @@ function QuestionPage() {
   const { questionId } = useParams();
   const question = getQuestionById(questionId);
 
+  if (!question) {
+    return <Navigate to="/questions" />;
+  }
+  
   return (
     <>
       <div className={styles.header}>
