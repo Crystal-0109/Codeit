@@ -7,13 +7,7 @@ rating_page = response.text
 
 soup = BeautifulSoup(rating_page, 'html.parser')
 
-program_title_tags = soup.select('td.program')
+td_tags = soup.select('td')[:4]
 
-# program_titles = []
-
-# for tag in program_title_tags:
-#     program_titles.append(tag.get_text())
-
-# print(program_titles)
-
-print(soup.select_one('td.program'))
+for tag in td_tags:
+    print(tag.get_text())
