@@ -6,4 +6,9 @@ music_page = response.text
 
 soup = BeautifulSoup(music_page, 'html.parser')
 
-print(soup.select('ul.popular__order li'))
+popular_artists = []
+
+for tag in soup.select('ul.popular__order li'):
+    popular_artists.append(tag.get_text().strip())
+    
+print(popular_artists)    
