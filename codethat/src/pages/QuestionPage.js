@@ -1,15 +1,17 @@
-import classNames from 'classnames';
-import { getQuestionById } from '../api';
-import Avatar from '../components/Avatar';
-import Card from '../components/Card';
-import Container from '../components/Container';
-import DateText from '../components/DateText';
-import Lined from '../components/Lined';
-import Warn from '../components/Warn';
-import styles from './QuestionPage.module.css';
+import { useParams } from "react-router-dom";
+import classNames from "classnames";
+import { getQuestionById } from "../api";
+import Avatar from "../components/Avatar";
+import Card from "../components/Card";
+import Container from "../components/Container";
+import DateText from "../components/DateText";
+import Lined from "../components/Lined";
+import Warn from "../components/Warn";
+import styles from "./QuestionPage.module.css";
 
 function QuestionPage() {
-  const question = getQuestionById('616825');
+  const { questionId } = useParams();
+  const question = getQuestionById(questionId);
 
   return (
     <>
@@ -20,11 +22,7 @@ function QuestionPage() {
               <div className={styles.content}>
                 <div className={styles.title}>
                   {question.title}
-                  {question.answers > 0 && (
-                    <span className={styles.count}>
-                      {question.answers.length}
-                    </span>
-                  )}
+                  {question.answers > 0 && <span className={styles.count}>{question.answers.length}</span>}
                 </div>
                 <div className={styles.date}>
                   <DateText value={question.createdAt} />
@@ -32,10 +30,7 @@ function QuestionPage() {
               </div>
               <Writer className={styles.author} writer={question.writer} />
             </div>
-            <p
-              className={styles.content}
-              dangerouslySetInnerHTML={{ __html: question.content }}
-            />
+            <p className={styles.content} dangerouslySetInnerHTML={{ __html: question.content }} />
           </div>
         </Container>
       </div>
@@ -43,20 +38,7 @@ function QuestionPage() {
         <h2 className={styles.count}>
           <Lined>{question.answers.length}개 답변</Lined>
         </h2>
-        {question.answers.length > 0 ? (
-          question.answers.map((answer) => (
-            <Answer
-              key={answer.id}
-              className={styles.answerItem}
-              answer={answer}
-            />
-          ))
-        ) : (
-          <Warn
-            title="답변을 기다리고 있어요."
-            description="이 질문의 첫 번째 답변을 달아주시겠어요?"
-          />
-        )}
+        {question.answers.length > 0 ? question.answers.map((answer) => <Answer key={answer.id} className={styles.answerItem} answer={answer} />) : <Warn title="답변을 기다리고 있어요." description="이 질문의 첫 번째 답변을 달아주시겠어요?" />}
       </Container>
     </>
   );
