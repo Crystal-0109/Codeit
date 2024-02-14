@@ -10,9 +10,9 @@ import WishlistPage from "./pages/WishlistPage";
 function Main() {
   return (
     <BrowserRouter>
-      <App>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<HomePage />} />
           <Route path="courses">
             <Route index element={<CourseListPage />} />
             <Route path="react-frontend-development" element={<CoursePage />} />
@@ -20,8 +20,8 @@ function Main() {
           <Route path="questions" element={<QuestionListPage />} />
           <Route path="questions/616825" element={<QuestionPage />} />
           <Route path="wishlist" element={<WishlistPage />} />
-        </Routes>
-      </App>
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
