@@ -7,4 +7,4 @@ rating_page = response.text
 
 soup = BeautifulSoup(rating_page, 'html.parser')
 
-print(soup.prettify())
+print(soup.select('table'))
