@@ -2,7 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import time
-import requests
+from openpyxl import Workbook
+
+wb = Workbook(write_only=True)
+ws = wb.create_sheet('코스타그램')
+ws.append(['이미지 주소', '내용', '해시태그', '좋아요 수', '댓글 수'])
 
 # 브라우저 꺼짐 방지 옵션
 chrome_options = Options()
@@ -40,31 +44,36 @@ while True:
 
 ### 스크롤 완료 ### 
 
-thumbnails = driver.find_elements(By.CSS_SELECTOR, 'div.post-list__post.post')
-
-image_urls = []
+thumbnails = driver.find_elements(By.CSS_SELECTOR, '.post-list__post')
 
 for thumbnail in thumbnails:
     # 썸네일 클릭
     thumbnail.click()
     time.sleep(0.5)
-    
-    # 이미지 URL 가져와서 리스트에 담기
-    style_attr = driver.find_element(By.CSS_SELECTOR, '.post-container__image').get_attribute('style')
-    image_path = style_attr.split('"')[1]
-    image_url = "https://workey.codeit.kr" + image_path
-    image_urls.append(image_url)
 
+    # 엑셀에 데이터 추가
+    # 이미지 주소
+    style_attr = driver.find_element(By.CSS_SELECTOR, 'div.post-container__image').get_attribute('style')
+    url = style_attr.split('"')[1]
+    
+    # 내용
+    content = driver.find_element(By.CSS_SELECTOR, 'span.content__text').text.strip()
+
+    # 해시태그
+    hashtags = driver.find_element(By.CSS_SELECTOR, 'div.content__tag-cover').text.strip()
+
+    # 좋아요 수
+    like_count = driver.find_element(By.CSS_SELECTOR, 'span.content__like-count').text.strip()
+
+    # 댓글 수
+    comment_count = driver.find_element(By.CSS_SELECTOR, 'span.content__comment-count').text.strip()
+
+    ws.append([url, content, hashtags, like_count, comment_count])
+    
     # 닫기 버튼 클릭
     driver.find_element(By.CSS_SELECTOR, 'button.close-btn').click()
     time.sleep(0.5)
 
 driver.quit()
 
-# 이미지 다운로드
-for i in range(len(image_urls)):
-    image_url = image_urls[i]
-    response = requests.get(image_url)
-    filename = 'image{}.jpg'.format(i)
-    with open(filename, 'wb+') as f:
-        f.write(response.content)
+wb.save('코스타그램.xlsx')
