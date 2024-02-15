@@ -2,8 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import time
-from openpyxl import Workbook
-from bs4 import BeautifulSoup
 
 # 브라우저 꺼짐 방지 옵션
 chrome_options = Options()
@@ -43,11 +41,24 @@ while True:
 
 thumbnails = driver.find_elements(By.CSS_SELECTOR, 'div.post-list__post.post')
 
+urls = []
+
 for thumbnail in thumbnails:
-    # driver.find_element(By.CSS_SELECTOR, 'post-list__post').click()
+    # 썸네일 클릭
     thumbnail.click()
     time.sleep(0.5)
+    
+    # 이미지 주소 가져와서 리스트에 담기
+    style_attr = driver.find_element(By.CSS_SELECTOR, '.post-container__image').get_attribute('style')
+    image_url = style_attr.split('"')[1]
+    urls.append(image_url)
+
+    # 닫기 버튼 클릭
     driver.find_element(By.CSS_SELECTOR, 'button.close-btn').click()
     time.sleep(0.5)
+
+# 예쁘게 한 줄씩 출력
+for url in urls:
+    print(url)
 
 driver.quit()
