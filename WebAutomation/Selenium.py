@@ -13,9 +13,7 @@ driver.implicitly_wait(3)
 driver.get('https://workey.codeit.kr/music')
 time.sleep(1)
 
-popular_artists =[]
+driver.execute_script("window.scrollTo(0, 200);")
 
-for artist in driver.find_elements(By.CSS_SELECTOR, 'ul.popular__order li'):
-  popular_artists.append(artist.text.strip())
-
-print(popular_artists)
+scroll_height = driver.execute_script("return document.body.scrollHeight;")
+print(scroll_height)
