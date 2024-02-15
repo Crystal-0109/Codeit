@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import time
 from openpyxl import Workbook
+from bs4 import BeautifulSoup
 
 wb = Workbook(write_only=True)
 ws = wb.create_sheet('플레이리스트')
@@ -34,15 +35,20 @@ while True:
         break
     last_height = new_height
 
-playlists = driver.find_elements(By.CSS_SELECTOR, 'div.playlist__meta')
+### 스크롤 완료 ### 
+music_page = driver.page_source
+driver.quit()
+
+soup = BeautifulSoup(music_page, 'html.parser')
+
+playlists = soup.select('.playlist__meta')
 
 for playlist in playlists:
-    title = playlist.find_element(By.CSS_SELECTOR, 'h3.title').text
-    hashtags = playlist.find_element(By.CSS_SELECTOR, 'p.tags').text
-    like_count = playlist.find_element(By.CSS_SELECTOR, 'span.data__like-count').text
-    music_count = playlist.find_element(By.CSS_SELECTOR, 'span.data__music-count').text
+    title = playlist.select_one('h3.title').get_text()
+    hashtags = playlist.select_one('p.tags').get_text()
+    like_count = playlist.select_one('span.data__like-count').get_text()
+    music_count = playlist.select_one('span.data__music-count').get_text()
 
     ws.append([title, hashtags, like_count, music_count])
 
-driver.quit()
 wb.save('플레이리스트_정보.xlsx')
