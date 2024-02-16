@@ -81,3 +81,6 @@
 - React MBTI별 좋아하는 컬러 프로젝트
 
 - DataFrame 다루기
+  - DataFrame 인덱싱 1 : 원하는 열, 행 정보 가져오기
+  - DataFrame 인덱싱 2 : 원하는 열, 행 슬라이싱
+  
