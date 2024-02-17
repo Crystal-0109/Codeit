@@ -91,3 +91,6 @@
   - index/column 설정하기
   - 큰 DataFrame 살펴보기
   - 큰 Series 살펴보기
+
+- 데이터 분석과 시각화 (Matplotlib)
+  - 선 그래프
