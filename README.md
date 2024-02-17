@@ -90,3 +90,4 @@
   - DataFrame에 값 추가/삭제
   - index/column 설정하기
   - 큰 DataFrame 살펴보기
+  - 큰 Series 살펴보기
