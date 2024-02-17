@@ -88,3 +88,4 @@
   - DataFrame에 값 쓰기 1 : 한 줄씩 바꾸기
   - DataFrame에 값 쓰기 2 : 여러 줄 한꺼번에 바꾸기
   - DataFrame에 값 추가/삭제
+  - index/column 설정하기
