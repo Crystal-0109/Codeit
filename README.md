@@ -101,3 +101,4 @@
   - 산점도 (scatter plot)
   - KDE 플롯
   - KDE 플롯 활용 예시
+  - LM 플롯
