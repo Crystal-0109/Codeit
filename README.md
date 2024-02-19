@@ -104,3 +104,4 @@
   - LM 플롯
   - 카테고리별 시각화 (catplot)
   - 상관 계수 시각화
+  - Exploratory Data Analysis (EDA)
