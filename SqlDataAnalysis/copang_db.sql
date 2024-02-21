@@ -1,16 +1,18 @@
 USE copang_main;
 
-select sum(age)
-from member;
+select *
+from member
+where address is null;
 
-select std(age)
-from member;
+select *
+from member
+where address is not null;
 
-select ceil(height)
-from member;
+select *
+from member
+where address is null
+or weight is null
+or address is null;
 
-select floor(height)
-from member;
-
-select round(height)
+select coalesce(height, '####'), coalesce(weight, '---'), coalesce(address, '@@@')
 from member;
