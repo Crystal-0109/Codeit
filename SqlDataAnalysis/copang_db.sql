@@ -1,19 +1,16 @@
 USE copang_main;
 
-select count(email)
+select sum(age)
 from member;
 
-select count(height)
+select std(age)
 from member;
 
-select count(*)
+select ceil(height)
 from member;
 
-select max(height)
+select floor(height)
 from member;
 
-select min(weight)
-from member;
-
-select avg(weight)
+select round(height)
 from member;
