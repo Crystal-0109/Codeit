@@ -1,5 +1,9 @@
 USE copang_main;
 
-select gender, count(*), avg(height), min(weight)
+select substring(address, 1, 2) as region, count(*)
 from member
-group by gender;
+group by substring(address, 1, 2);
+
+select substring(address, 1, 2) as region, gender, count(*)
+from member
+group by substring(address, 1, 2), gender;
