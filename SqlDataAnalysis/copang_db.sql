@@ -1,9 +1,17 @@
 USE copang_main;
 
-select *
+select * 
 from member
-where address like '서울%';
+where gender != 'm';
 
-select *
+select * 
 from member
-where address like '%고양시%';
+where gender <> 'm';
+
+select * 
+from member
+where age in (20, 30);
+
+select * 
+from member
+where email like 'c_____@%';
