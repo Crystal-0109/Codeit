@@ -1,17 +1,28 @@
 USE copang_main;
 
-select * 
+select *
 from member
-where gender != 'm';
+where year(birthday) = '1992';
 
-select * 
+select *
 from member
-where gender <> 'm';
+where month(sign_up_day) in (6, 7, 8);
 
-select * 
+select *
 from member
-where age in (20, 30);
+where dayofmonth(sign_up_day) between 15 and 31;
 
-select * 
-from member
-where email like 'c_____@%';
+select email, sign_up_day, curdate(), datediff(sign_up_day, curdate())
+from member;
+
+select email, sign_up_day, datediff(sign_up_day, birthday) / 365
+from member;
+
+select email, sign_up_day, date_add(sign_up_day, interval 300 day)
+from member;
+
+select email, sign_up_day, date_sub(sign_up_day, interval 250 day)
+from member;
+
+select email, sign_up_day, from_unixtime(unix_timestamp(sign_up_day))
+from member;
