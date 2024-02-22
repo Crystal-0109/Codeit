@@ -138,3 +138,4 @@
   - 자연어 전처리 적용 1
   - 문장 토큰화
   - 품사 태깅 (POS Tagging)
+  - 표제어 추출 (lemmatization)
