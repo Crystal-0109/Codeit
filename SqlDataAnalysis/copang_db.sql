@@ -1,9 +1,11 @@
 use copang_main;
 
-# 리뷰가 최소 3개 이상 달린 상품들의 정보 조회
-select *
-from item
-where id in (select item_id
-			 from review
-             group by item_id
-             having count(*) >= 3);
+# 평균, 최대, 최소 리뷰 개수
+select avg(review_count), max(review_count), min(review_count)
+from (select substring(address, 1, 2) as region,
+			 count(*) as review_count
+	  from review as r left outer join member as m
+		   on r.mem_id  = m.id
+	  group by substring(address, 1, 2)
+	  having region is not null
+	  and region != '안드') as review_count_summary;
