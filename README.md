@@ -133,3 +133,4 @@
   - 단어 토큰화
   - 정제 (cleaning)
   - 불용어 (stopwords)
+  - 정규화 (normalization)
