@@ -2,3 +2,4 @@ node_modules
 CodeitRank.py
 debug.log
 */.ipynb_checkpoints/*
+__pycache__
