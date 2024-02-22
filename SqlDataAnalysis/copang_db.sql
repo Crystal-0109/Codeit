@@ -1,19 +1,11 @@
 use copang_main;
 
-select i.id, i.name, avg(star) as avg_star
-from item as i left outer join review as r
-on r.item_id = i.id
-group by i.id, i.name
-having avg_star < 3.7273
-order by avg_star desc;
+# price 컬럼에서 최댓값을 구하는 서브쿼리
+select id, name, price,
+	   (select max(price) from item) as 'max_price'
+from item;
 
-# 별점 확인
-select avg(star) from review;
-
-# 서브쿼리
-select i.id, i.name, avg(star) as avg_star
-from item as i left outer join review as r
-on r.item_id = i.id
-group by i.id, i.name
-having avg_star < (select avg(star) from review)
-order by avg_star desc;
+# price 컬럼에서 평균을 구하는 서브쿼리
+select id, name, price,
+	   (select avg(price) from item) as 'avg_price'
+from item;
