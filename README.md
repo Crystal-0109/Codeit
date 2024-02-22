@@ -135,3 +135,4 @@
   - 불용어 (stopwords)
   - 정규화 (normalization)
   - 어간 추출 (stemming)
+  - 자연어 전처리 적용 1
