@@ -61,3 +61,34 @@ def pos_tagger(tokenized_sents):
         pos_tagged_words.extend(pos_tagged)
     
     return pos_tagged_words
+
+# 표제어 추출 함수
+import nltk
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import wordnet as wn
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+def penn_to_wn(tag):
+    if tag.startswith('J'):
+        return wn.ADJ
+    elif tag.startswith('N'):
+        return wn.NOUN
+    elif tag.startswith('R'):
+        return wn.ADV
+    elif tag.startswith('V'):
+        return wn.VERB
+
+def words_lemmatizer(pos_tagged_words):
+    lemmatizer = WordNetLemmatizer()
+    lemmatized_words = []
+
+    for word, tag in pos_tagged_words:
+        wn_tag = penn_to_wn(tag)
+
+        if wn_tag in (wn.NOUN, wn.ADJ, wn.ADV, wn.VERB):
+            lemmatized_words.append(lemmatizer.lemmatize(word, wn_tag))
+        else:
+            lemmatized_words.append(word)
+
+    return lemmatized_words
