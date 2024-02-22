@@ -1,26 +1,7 @@
 use copang_main;
 
-select old.id as old_id,
-	   old.name as old_name,
-       new.id as new_id,
-       new.name as new_name
-from item as old left outer join item_new as new
-on old.id = new.id;
-
-select old.id as old_id,
-	   old.name as old_name,
-       new.id as new_id,
-       new.name as new_name
-from item as old right outer join item_new as new
-on old.id = new.id;
-
-select old.id as old_id,
-	   old.name as old_name,
-       new.id as new_id,
-       new.name as new_name
-from item as old inner join item_new as new
-on old.id = new.id;
-
-select * from item
-union
-select * from item_new;
+select i.name, i.id,
+	   r.item_id, r.star, r.comment, r.mem_id,
+       m.id, m.email
+from item as i left outer join review as r on r.item_id = i.id
+     left outer join member as m on r.mem_id = m.id;
