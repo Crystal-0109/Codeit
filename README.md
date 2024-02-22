@@ -134,3 +134,4 @@
   - 정제 (cleaning)
   - 불용어 (stopwords)
   - 정규화 (normalization)
+  - 어간 추출 (stemming)
