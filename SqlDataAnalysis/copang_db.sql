@@ -1,11 +1,17 @@
 use copang_main;
 
-# price 컬럼에서 최댓값을 구하는 서브쿼리
-select id, name, price,
-	   (select max(price) from item) as 'max_price'
-from item;
-
-# price 컬럼에서 평균을 구하는 서브쿼리
+# 전체 상품의 평균 가격보다 높은 가격을 가진 상품 조회
 select id, name, price,
 	   (select avg(price) from item) as 'avg_price'
-from item;
+from item
+where price > (select avg(price) from item);
+
+# 가장 비싼 상품 조회
+select id, name, price
+from item
+where price = (select max(price) from item);
+
+# 최저가 상품 조회
+select id, name, price
+from item
+where price = (select min(price) from item);
