@@ -1,21 +1,19 @@
 use copang_main;
 
-select i.id, i.name, avg(star), count(*)
-from item as i left outer join review as r on r.item_id = i.id
-     left outer join member as m on r.mem_id = m.id
-where m.gender = 'f'
+select i.id, i.name, avg(star) as avg_star
+from item as i left outer join review as r
+on r.item_id = i.id
 group by i.id, i.name
-having count(*) > 1
-order by avg(star) desc, count(*) desc;
+having avg_star < 3.7273
+order by avg_star desc;
 
-select i.id, i.name, avg(star), count(*)
-from item as i left outer join review as r on r.item_id = i.id
-     left outer join member as m on r.mem_id = m.id
-where m.gender = 'm'
+# 별점 확인
+select avg(star) from review;
+
+# 서브쿼리
+select i.id, i.name, avg(star) as avg_star
+from item as i left outer join review as r
+on r.item_id = i.id
 group by i.id, i.name
-having count(*) > 1
-order by avg(star) desc, count(*) desc;
-
-select *
-from review
-where item_id = 2;
+having avg_star < (select avg(star) from review)
+order by avg_star desc;
