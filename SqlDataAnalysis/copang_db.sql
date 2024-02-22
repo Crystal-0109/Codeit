@@ -1,11 +1,18 @@
 use copang_main;
 
-# 평균, 최대, 최소 리뷰 개수
-select avg(review_count), max(review_count), min(review_count)
-from (select substring(address, 1, 2) as region,
-			 count(*) as review_count
-	  from review as r left outer join member as m
-		   on r.mem_id  = m.id
-	  group by substring(address, 1, 2)
-	  having region is not null
-	  and region != '안드') as review_count_summary;
+# 서브쿼리 중첩
+select i.id, i.name, avg(star) avg_star, count(*) count_star
+from item as i left outer join review as r on r.item_id = i.id
+     left outer join member as m on r.mem_id = m.id
+where m.gender = 'f'
+group by i.id, i.name
+having count(*) >= 2
+	   and avg_star = (select max(avg_star)
+					   from (select i.id, i.name, avg(star) as avg_star, count(*) as count_star
+							 from item as i left outer join review as r on r.item_id = i.id
+								  left outer join member as m on r.mem_id = m.id
+							 where m.gender = 'f'
+                             group by i.id, i.name
+                             having count(*) >= 2
+                             order by avg(star) desc, count(*) desc) as final)
+order by avg(star) desc, count(*) desc;
