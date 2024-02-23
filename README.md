@@ -144,3 +144,4 @@
   - 정수 인코딩
   - 패딩 (padding)
   - 어휘 사전 (WordNet)
+  - 감성 어휘 사전 (SentiWordNet)
