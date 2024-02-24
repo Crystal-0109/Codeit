@@ -10,7 +10,7 @@ export default function ProductList({ className = "", products }) {
         <li key={product.id}>
           <Link className={styles.product} href={`/products/${product.id}`}>
             <div className={styles.image}>
-              <Image fill src={product.imgUrl} alt={product.name} />
+              <Image fill src={product.imgUrl} alt={product.name} style={{ objectFit: "cover" }} />
             </div>
             <div className={styles.content}>
               <div>

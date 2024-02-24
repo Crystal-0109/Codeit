@@ -43,7 +43,7 @@ export default function Product() {
       </h1>
       <div className={styles.content}>
         <div className={styles.image}>
-          <Image fill src={product.imgUrl} alt={product.name} />
+          <Image fill src={product.imgUrl} alt={product.name} style={{ objectFit: "cover" }} />
         </div>
         <div>
           <section className={styles.section}>

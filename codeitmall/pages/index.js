@@ -7,19 +7,19 @@ import Header from "@/components/Header";
 import Container from "@/components/Container";
 import Head from "next/head";
 
-export default function Home() {
-  const [products, setProducts] = useState([]);
+// 정적 생성을 할 때 Next.js가 실행할 함수
+export async function getStaticProps() {
+  const res = await axios.get("/products");
+  const products = res.data.results;
 
-  async function getProducts() {
-    const res = await axios.get("/products");
-    const nextProducts = res.data.results;
-    setProducts(nextProducts);
-  }
+  return {
+    props: {
+      products,
+    },
+  };
+}
 
-  useEffect(() => {
-    getProducts();
-  }, []);
-
+export default function Home({ products }) {
   return (
     <>
       <Head>
