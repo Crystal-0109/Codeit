@@ -5,6 +5,7 @@ import axios from "@/lib/axios";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Container from "@/components/Container";
+import Head from "next/head";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -21,6 +22,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Codeitmall</title>
+      </Head>
       <SearchForm />
       <ProductList className={styles.products} products={products} />
     </>
