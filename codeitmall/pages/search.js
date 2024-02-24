@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import ProductList from "@/components/ProductList";
-import SearchForm from "@/components/SearchForm";
-import axios from "@/lib/axios";
-import styles from "@/styles/Search.module.css";
-import Header from "@/components/Header";
-import Container from "@/components/Container";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import ProductList from '@/components/ProductList';
+import SearchForm from '@/components/SearchForm';
+import axios from '@/lib/axios';
+import styles from '@/styles/Search.module.css';
+import Header from '@/components/Header';
+import Container from '@/components/Container';
 
 export default function Search() {
   const [products, setProducts] = useState([]);
@@ -21,6 +21,7 @@ export default function Search() {
   useEffect(() => {
     getProducts(q);
   }, [q]);
+
 
   return (
     <div>

@@ -1,6 +1,6 @@
-import styles from "@/styles/Input.module.css";
+import styles from './Input.module.css';
 
-export default function Input({ className = "", ...props }) {
+export default function Input({ className = '', ...props }) {
   const classNames = `${styles.input} ${className}`;
   return <input className={classNames} {...props} />;
 }
