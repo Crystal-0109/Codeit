@@ -1,5 +1,11 @@
-import area
+# import <module>
+import shapes2d
 
-print(area.circle(2))
-print(area.square(3))
-print(area.PI)
+circle = shapes2d.Circle(2)
+print(circle.area())
+
+# from <module> import <member(s)>
+from shapes2d import Square as sq
+
+square = sq(3)
+print(square.area())
